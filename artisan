@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| O Composer fornece um carregador de classes conveniente e gerado automaticamente
+| para a nossa aplicação. Nós apenas precisamos utilizá-lo! Vamos exigir
+| no script aqui para que não tenhamos que nos preocupar com o
+| carregamento de qualquer uma de nossas classes "manualmente". É ótimo relaxar.
+|
+*/
+
+require __DIR__.'/bootstrap/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run The Artisan Application
+|--------------------------------------------------------------------------
+|
+| Quando executamos o aplicativo de console, o comando CLI atual será
+| executado neste console e a resposta enviada de volta para um terminal
+| ou outro dispositivo de saída para os desenvolvedores. Aqui vai nada!
+|
+*/
+
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
+$status = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Uma vez que Artisan terminou de correr. Vamos disparar os eventos de desligamento
+| para que qualquer trabalho final possa ser feito pelo aplicativo antes de fecharmos
+| abaixo o processo. Esta é a última coisa a acontecer com a solicitação.
+|
+*/
+
+$kernel->terminate($input, $status);
+
+exit($status);

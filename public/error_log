@@ -1,0 +1,2 @@
+[21-Oct-2019 21:40:27 America/Bahia] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/urbanomobi/public_html/app/Http/Controllers/Resource/FleetResource.php on line 56
+[21-Oct-2019 21:40:27 America/Bahia] PHP Fatal error:  ob_start(): Cannot use output buffering in output buffering display handlers in /home/urbanomobi/public_html/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php on line 35

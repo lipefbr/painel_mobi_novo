@@ -1,0 +1,15 @@
+
+php artisan route:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan config:clear
+
+chmod -R 777 public/uploads/
+chmod -R 777 storage/
+chmod -R 777 bootstrap/
+
+php artisan key:generate
+php artisan storage:link
+
+php artisan config:cache
+php artisan optimize
